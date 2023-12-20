@@ -1,7 +1,8 @@
 # Hockey Player Object Detector
 
 
-<img width="1272" alt="Screenshot 2023-12-20 at 5 24 20 PM" src="https://github.com/candrle20/HockeyPlayerDetector/assets/136523247/1c519a2d-8683-48e9-9c4b-c20df2de36cd">
+<img width="1267" alt="Screenshot 2023-12-20 at 5 43 51 PM" src="https://github.com/candrle20/HockeyDetector/assets/136523247/d340cd2d-efa7-4fc3-bab0-af5f53aa7710">
+
 
 
 
@@ -21,7 +22,9 @@ https://github.com/ultralytics/ultralytics
 
 YOLOv8 Hockey Performance
 
-<img width="1145" alt="Screenshot 2023-12-20 at 5 09 26 PM" src="https://github.com/candrle20/HockeyPlayerDetector/assets/136523247/63f67f5c-ea30-4da5-9870-8031f3d0274d">
+
+<img width="1145" alt="Screenshot 2023-12-20 at 5 09 26 PM" src="https://github.com/candrle20/HockeyDetector/assets/136523247/8654e684-6fc2-4036-94e6-d09bcc51e20d">
+
 
 
 Tensorflow 2 Model Zoo
