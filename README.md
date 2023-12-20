@@ -4,6 +4,7 @@
 <img width="1272" alt="Screenshot 2023-12-20 at 5 24 20 PM" src="https://github.com/candrle20/HockeyPlayerDetector/assets/136523247/1c519a2d-8683-48e9-9c4b-c20df2de36cd">
 
 
+
 This repository contains two separate implementations of a hockey player detection system which was created by fine tuning the following pretrained models:
 
 1. YOLOv8n
