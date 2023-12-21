@@ -49,7 +49,8 @@ The data set can be seen here: https://universe.roboflow.com/hockeyplayer-model/
 
 ## Next Steps
 
-- Annotate a new testing data set to measure performance of these models vs off the shelf pretrained versions
+- Annotate a new testing data set to measure performance of these models vs standard models
 - Implement boundry segmentation around ice surface to filter out false positives from detecting fans
 - Train the model to differentiate between home vs away players
+- Jersey number identification 
 
