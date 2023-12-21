@@ -1,7 +1,5 @@
 # Hockey Player Object Detector
 
-
-
 <img width="1267" alt="Screenshot 2023-12-20 at 5 43 51 PM" src="https://github.com/candrle20/HockeyDetector/assets/136523247/d340cd2d-efa7-4fc3-bab0-af5f53aa7710">
 
 
@@ -33,12 +31,13 @@ Tensorflow 2 Model Zoo
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 
 
-##EfficientDet D1 640x640 Output
+
 
 
 <img width="1151" alt="Screenshot 2023-12-20 at 10 30 15 PM" src="https://github.com/candrle20/HockeyDetector/assets/136523247/5ff7b67f-d381-443d-88fb-7165a1014e7b">
 
 
+EfficientDet D1 640x640 Output
 
 ## Dataset
 
