@@ -39,7 +39,7 @@ https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc
 <img width="1151" alt="Screenshot 2023-12-20 at 10 30 15 PM" src="https://github.com/candrle20/HockeyDetector/assets/136523247/5ff7b67f-d381-443d-88fb-7165a1014e7b">
 
 
-EfficientDet D1 640x640 Output
+TF2 EfficientDet D1 640x640 Output
 
 ## Dataset
 
