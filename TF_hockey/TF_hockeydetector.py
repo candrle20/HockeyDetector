@@ -2,11 +2,8 @@ import os
 import tensorflow as tf
 import numpy as np
 import cv2
-from tensorflow.python.keras.utils.data_utils import get_file
 
 
-#Set seed for bbox color consistency
-np.random.seed(10)
 
 class TFHockeyDetector:
     """Tensor Flow Hockey Detector Class
@@ -33,16 +30,14 @@ class TFHockeyDetector:
         detect_video: Detects skaters, refs, and goalies in video
     """
     
-    def __init__(self, model_path, output_dir, class_path='labels.txt'):
-        
-        model_file = os.path.basename(model_path)
-        self.model_name =  model_file.split('.')[0]
-        
-        os.makedirs(self.model_dir, exist_ok=True)
-        get_file(model_file, model_path, cache_dir=output_dir, extract=True)
-        
+    def __init__(self, model_path, class_path='TF_hockey/labels.txt'):
+
+
+        #Set seed for bbox color consistency
+        np.random.seed(10)
+        self.model_name = os.path.basename(model_path)
         self.classes, self.classColors = self.obj_classes(class_path)
-        self.model = self.load_model()
+        self.model = self.load_model(model_path)
 
 
     def obj_classes(self, class_path):
@@ -54,11 +49,10 @@ class TFHockeyDetector:
         return classes, colors
 
 
-    def load_model(self):
-        print('Loading model: ' + self.model_name)
+    def load_model(self, model_path):
+        print('Loading TF EfficientDet Hockey Detection Model')
         tf.keras.backend.clear_session()
-        model = tf.saved_model.load(os.path.join(self.model_dir, 'datasets', 
-                                                      self.model_name, 'saved_model'))
+        model = tf.saved_model.load(model_path)
         print('Model loaded successfully!')
         return model
 
@@ -119,13 +113,15 @@ class TFHockeyDetector:
 
         base_name = os.path.basename(video_path)
         vid_name, ext = os.path.splitext(base_name)
-
+        
         if save:
-            record = cv2.VideoWriter(f'{vid_name}_bboxed.mp4', cv2.VideoWriter_fourcc(*'avc1'), fps, (width, height))
+            record = cv2.VideoWriter(f'{vid_name}_TF.mp4', cv2.VideoWriter_fourcc(*'avc1'), fps, (width, height))
 
         while True:
+
             current_frame += 1
             print(f"Processing: {round(current_frame/total_frames * 100, 2)}% complete")
+
             stream, frame = cap.read()
 
             if not stream:
@@ -134,7 +130,7 @@ class TFHockeyDetector:
             box_img = self.draw_boxes(frame, conf_threshold)
 
             if show:
-                cv2.imshow("TensorFlow Resnet50 Hockey Player Detector", box_img)
+                cv2.imshow("TF EfficientDet D1 Hockey Player Detector", box_img)
             if save:
                 record.write(box_img)
             if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -147,10 +143,10 @@ class TFHockeyDetector:
 
 ####### ARGS #######
 model_dir = '/TF_hockey'
-model_path = 'TF_hockeyDetector.h5'
-video_path = '/videos/provMich.mp4'
+model_path = 'TF_hockey/saved_model'
+video_path = 'videos/HawksPanthers.mp4'
 
 
 if __name__ == '__main__':
-    detector = TFHockeyDetector(model_path, model_dir)
-    detector.detect_video(video_path, 0.6)
+    detector = TFHockeyDetector(model_path)
+    detector.detect_video(video_path, 0.6, show=False, save=True)
